@@ -22,3 +22,12 @@ Caracterizado por usar mensagens de texto ou serviço de mensagens curtas (SMS) 
 
 **VISHING**
 Um ataque comum de vishing inclui uma ligação de alguém que afirma ser um representante de alguma entidade relacionada com a vítima. Esta pessoa informa que detectou problema no alvo. Em seguida, você será solicitado a fornecer os detalhes do cartão de crédito para que o invasor possa se livrar do problema.
+
+##Nomenclatura<br>
+|     Nome      |   Aproximação    |  Descrição    |
+| ------------- | ------------- | ------------- |
+| Pishing  | Pecaria  | Jogar uma isca e "pescar" vítimas na internet  |
+| Spear Phising  | Pescar com vara  | Pescar com uma vara pode levar a você vários itens abaixo da linha da água  |
+| Whaling  | Pesca de baleia  | Focar em um alvo grande, como uma baleia, pode trazer melhores resultados  |
+| Smishing  | Pescaria por SMS  | Usar o sms pode poupar você de algumas interações  |
+| Vishing  | Pescaria com voz  | V de voice, a partir daí, entendemos do que se trata  |
