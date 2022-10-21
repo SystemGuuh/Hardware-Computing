@@ -1,12 +1,12 @@
-# ESP8266 WiFi Phishing
+# ESP3266 WiFi Phishing
 ## Notas
 Esse repositório possuí apenas propósito educacional, use e teste apenas com a sua conexão. Não assumo qualquer responsabilidade pela forma em que o conteúdo contido aqui será utilizada.<br>
-Além disso, é apenas uma tradução do **ESP8266-Captive-Portal**, disponível em: https://github.com/adamff1/ESP8266-Captive-Portal
+Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal**, disponível em: https://github.com/adamff1/ESP8266-Captive-Portal
 
 ## Sobre o projeto
 - Potal WiFi para coletar informaçẽos com NodeMCU(microcontrolador) ESP826 com DNS falsificado.
 - O LED embutido piscará 5 vezes quando uma senha for postada.
-- **Aviso!** Suas senhas salvas **não** desaparecerão quando você reiniciar/desligar o ESP8266.
+- **Aviso!** Suas senhas salvas **não** desaparecerão quando você reiniciar/desligar o ESP3266.
 - Se você quiser ver as senhas armazenadas, vá para "172.0.0.1/pass". Para alterar o SSID, vá para "172.0.0.1/ssid"
 - Há uma V2.0 com (Login falso) disponível em: https://github.com/125K/ESP8266_WiFi_Captive_Portal_2.0
 
@@ -35,7 +35,7 @@ Além disso, é apenas uma tradução do **ESP8266-Captive-Portal**, disponível
 
 # Instalação (ESP8266 Flasher - Modo fácil)
 
-1. Baixe: <a href="https://github.com/nodemcu/nodemcu-flasher"><b>ESP8266 Flasher</b></a>.
+1. Baixe: <a href="https://github.com/nodemcu/nodemcu-flasher"><b>ESP8266 Flasher</b></a>. Testei para o ESP3266 e funcionou tranquilamente!
 
 2. Beixe o arquivo <b><a href="https://github.com/125K/ESP8266_WiFi_Captive_Portal_2.0/releases/download/2.1/release.bin"></b></a> file.
 
@@ -54,8 +54,8 @@ Além disso, é apenas uma tradução do **ESP8266-Captive-Portal**, disponível
 # Instalação do Arduino IDE
 
 1. Abra o <a href="https://www.arduino.cc/en/main/software">Arduino IDE</a> e vá na aba "File -> Preferences -> Boards Manager URLs" and paste the following link:
-``http://arduino.esp8266.com/stable/package_esp8266com_index.json``
-2. Vá em "Ferramentas -> Placa -> Gerenciador de Placas", procure "esp8266" e instale o esp8266
+``https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json``
+2. Vá em "Ferramentas -> Placa -> Gerenciador de Placas", procure "esp3266" e instale o esp3266
 3. Vá em "Ferramentas -> Placa" e selecione sua placa "ESP32 Dev Module"
 4. Baixe e abra o sketch "<a href="https://github.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/blob/master/ESP8266_WiFi_Captive_Portal_2.0.ino"><b>ESP8266_WiFi_Captive_Portal_2.0.ino</b></a>"
 5. Você pode mudar o nome do SSID e os textos da página como título, subtítulo, texto do corpo...
