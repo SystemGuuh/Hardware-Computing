@@ -18,7 +18,7 @@ Esses ataques possuem como alvo o "peixe-grande" como um CEO, CFO ou qualquer ou
 
 **SMISHING**<br>
 Caracterizado por usar mensagens de texto ou serviço de mensagens curtas (SMS) para executar o ataque. Uma técnica comum é enviar uma mensagem a um telefone celular por meio de SMS que contém um link clicável, o resto a gente já sabe. Abaixo segue um exemplo:
-<img src="">
+<img src="https://github.com/SystemGuuh/Phishing-ExplicaoESP3266/blob/main/imgs/smishing.png?raw=true">
 
 **VISHING**
 Um ataque comum de vishing inclui uma ligação de alguém que afirma ser um representante de alguma entidade relacionada com a vítima. Esta pessoa informa que detectou problema no alvo. Em seguida, você será solicitado a fornecer os detalhes do cartão de crédito para que o invasor possa se livrar do problema.
