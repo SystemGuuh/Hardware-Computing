@@ -53,11 +53,11 @@ Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal*
 
 # Instalação do Arduino IDE
 
-1. Abra o <a href="https://www.arduino.cc/en/main/software">Arduino IDE</a> e vá na aba "File -> Preferences -> Boards Manager URLs" and paste the following link:
+  1. Abra o <a href="https://www.arduino.cc/en/main/software">Arduino IDE</a> e vá na aba "Arquivos -> Preferencias -> Gerenciador de URL de placas" e cole o link abaixo:
 ``https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json``
 2. Vá em "Ferramentas -> Placa -> Gerenciador de Placas", procure "esp3266" e instale o esp3266
 3. Vá em "Ferramentas -> Placa" e selecione sua placa "ESP32 Dev Module"
-4. Baixe e abra o sketch "<a href="https://github.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/blob/master/ESP8266_WiFi_Captive_Portal_2.0.ino"><b>ESP8266_WiFi_Captive_Portal_2.0.ino</b></a>"
+4. Baixe e abra o sketch "<a href="https://github.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/blob/master/ESP8266_WiFi_Captive_Portal_2.0.ino"><b>ESP3266_WiFi_Captive_Portal.ino</b></a>"
 5. Você pode mudar o nome do SSID e os textos da página como título, subtítulo, texto do corpo...
 6. Upload o código na sua placa.
 7. Pronto!
