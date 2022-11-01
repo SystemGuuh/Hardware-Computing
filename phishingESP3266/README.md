@@ -1,14 +1,13 @@
-# ESP3266 WiFi Phishing
+# ESP3266 e ESP8266 WiFi Phishing
 ## Notas
 Esse repositório possuí apenas propósito educacional, use e teste apenas com a sua conexão. Não assumo qualquer responsabilidade pela forma em que o conteúdo contido aqui será utilizada.<br>
 Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal**, disponível em: https://github.com/adamff1/ESP8266-Captive-Portal
 
 ## Sobre o projeto
-- Potal WiFi para coletar informaçẽos com NodeMCU(microcontrolador) ESP826 com DNS falsificado.
+- Potal WiFi para coletar informaçẽos com NodeMCU(microcontrolador) ESP com DNS falsificado.
 - O LED embutido piscará 5 vezes quando uma senha for postada.
-- **Aviso!** Suas senhas salvas **não** desaparecerão quando você reiniciar/desligar o ESP3266.
+- **Aviso!** Suas senhas salvas **não** desaparecerão quando você reiniciar/desligar o ESP.
 - Se você quiser ver as senhas armazenadas, vá para "172.0.0.1/pass". Para alterar o SSID, vá para "172.0.0.1/ssid"
-- Há uma V2.0 com (Login falso) disponível em: https://github.com/125K/ESP8266_WiFi_Captive_Portal_2.0
 
 # Demonstração
 
@@ -37,7 +36,7 @@ Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal*
 
 1. Baixe: <a href="https://github.com/nodemcu/nodemcu-flasher"><b>ESP8266 Flasher</b></a>. Testei para o ESP3266 e funcionou tranquilamente!
 
-2. Beixe o arquivo <b><a href="https://github.com/125K/ESP8266_WiFi_Captive_Portal_2.0/releases/download/2.1/release.bin"></b></a> file.
+2. Beixe o arquivo <b><a href="https://github.com/125K/ESP8266_WiFi_Captive_Portal/releases/download/1.1/release.bin">release.bin</b>
 
 3. Abra o ESP8266 Flasher e selecione a porta Node MCU
 
