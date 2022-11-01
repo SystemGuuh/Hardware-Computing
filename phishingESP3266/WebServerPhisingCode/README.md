@@ -1,7 +1,4 @@
 # Código para dispositivos
-## Notas
-Esse repositório possuí apenas propósito educacional, use e teste apenas com a sua conexão. Não assumo qualquer responsabilidade pela forma em que o conteúdo contido aqui será utilizada.<br>
-Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal**, disponível em: https://github.com/adamff1/ESP8266-Captive-Portal
 
 ## Observações
 - Código para ESP8266 está funcionando corretamente!
