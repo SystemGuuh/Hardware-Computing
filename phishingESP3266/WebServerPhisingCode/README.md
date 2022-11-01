@@ -7,7 +7,7 @@ Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal*
 - Código para ESP8266 está funcionando corretamente!
 - Estou trabalhando no projeto para ESP3266
 
-##ESP32 vs ESP8266
+## ESP32 vs ESP8266
 Conforme a fama do ESP8266 foi aumentando diversos fabricantes e comunidades foram criando módulos diferentes com o ESP8266, um dos mais conhecido é o NodeMCU ESP8266 que possui 13 Pinos de I/O. Depois, em 2016, a Espressif lançou o chip EPS32 com diversos recursos melhorados em relação ao ESP8266, além de ter um preço baixo.
 
 | **Descrição**  | **ESP3266** | **ESP8266** |
