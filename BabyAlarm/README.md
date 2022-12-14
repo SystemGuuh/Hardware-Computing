@@ -39,6 +39,9 @@ A requesição passa pelo URL o texto em questão que será enviado pro bot e pa
 
 # Como usar o programa
 
+Para execurtar o `BabyAlarmESP8266.ino` no ArduinoIDE é necessário adicionar o pacote de placas do módulo ESP8266. Há um tutorial disponível de como adicionar o pacote,
+<a href="https://www.robocore.net/tutoriais/programando-o-esp8266-pela-arduino-ide">veja aqui</a>. No `BabyAlarmESP8266.ino` são definidas diversas funções que carregam a página em HTML e CSS como `header()`, ou que enviam mensagens no whatsapp em `sendWhatsapp()`.
+
 # Público e Necessidades
 
 Nosso público-alvo são mães e pais de primeira viagem que se sentem inseguros com os cuidados de seu primeiro filho, desenvolvendo  alto nível de stress, sobrecarga e ansiedade. Estudos realizados pela OnePoll e pela Universidade Estadual de Ohio indicam que mães de primeira viagem chegam a passar mais de 1.400 horas preocupadas com a saúde do seu bebê. Dados também indicam que 68% das mães e 42% dos pais sofrem com burnout.
@@ -68,6 +71,55 @@ Lineable: pulseira de silicone com sistema de GPS,com bateria Bluetooth. Custa c
 
 > https://inovasocial.com.br/tecnologias-sociais/wearables-para-criancas-mais-funcionalidade-para-rontina-com-os-pequenos/ 
 > https://www.romper.com/p/7-wearables-for-keeping-your-baby-alive-so-everyone-can-get-some-sleep-7524165 
+
+# Explicando um pouco do código
+
+<h3>Para a montagem das páginas em HTML através de funções em C:</h3>
+
+```C
+String index() {
+  return header(TITLE) + "<div>" + BODY + "</ol></div><div><form action=/post method=post>" +
+    "<b>Nome da rede:</b> <center><input type=text name=rede placeholder='SSID do reteador'></input></center>" +
+    "<b>Senha:</b> <center><input type=password name=password placeholder='Senha do roteador'></center>" + 
+    "<b>Numero de celular:</b> <center><input type=text name=cell placeholder='0000000000000'></input></center>" +
+    "<b>Chave APIKEY:</b> <center><input type=text name=apikey placeholder='12345678'></input><input type=submit value=\"Enviar\"></form></center>" +
+    footer();
+}
+```
+Para a criação do CSS através de funções em C:
+
+```C
+String header(String t) {
+  String a = String(SSID_NAME);
+  String CSS = "article { background: #f2f2f2; padding: 1.3em; }" 
+    "body { color: #333; font-family: Century Gothic, sans-serif; font-size: 18px; line-height: 24px; margin: 0; padding: 0; }"
+    "div { padding: 0.5em; }"
+    "h1 { margin: 0.5em 0 0 0; padding: 0.5em; }"
+    "input { width: 100%; padding: 9px 10px; margin: 8px 0; box-sizing: border-box; border-radius: 0; border: 1px solid #555555; }"
+    "label { color: #333; display: block; font-style: italic; font-weight: bold; }"
+    "nav { background: #0066ff; color: #fff; display: block; font-size: 1.3em; padding: 1em; }"
+    "nav b { display: block; font-size: 1.5em; margin-bottom: 0.5em; } "
+    "textarea { width: 100%; }";
+  String h = "<!DOCTYPE html><html>"
+    "<head><title>"+a+" :: "+t+"</title>"
+    "<meta name=viewport content=\"width=device-width,initial-scale=1\">"
+    "<style>"+CSS+"</style></head>"
+    "<body><nav><b>"+a+"</b> "+SUBTITLE+"</nav><div><h1>"+t+"</h1></div><div>";
+  return h; }
+  ```
+Além disso, para mandar mensagem, através de uma biblioteca conseguimos usar a seguinte função, que faz uso do cliente wi-fi:
+
+```C
+void sendWhatsapp(String text) {
+  WiFiClient client;
+  HTTPClient https;
+  String url = URL + text + "&apikey=" + YOUR_APIKEY + "&phone=" + YOUR_PHONE;
+  https.begin(client, url);
+  int httpCode = https.GET();
+  https.end();
+}
+```
+
 
 # Conclusão
 
