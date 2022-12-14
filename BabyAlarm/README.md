@@ -1,4 +1,4 @@
-# BabyAlarm
+# BabyAlarm 👶
 Projeto para a máteria de Computação Física, ministrada pelo @FNakano na Universidade de Sâo Paulo. O projeto é um dispositivo de monitoramento de bebês.
 Documentação com código Fonte
 
@@ -139,15 +139,15 @@ void sendWhatsapp(String text) {
 
 # Conclusão
 
-foi possível baraterar?
-possível usar ao longo do crescimento da criança?
-possível usar em idosos ou pessoas doentes?
-possível atribuir mais sensores e funções com mais tempo e pesquisas?
-	_ qualidade de sono
-	_ quedas
-	_ posição
-	_ acordado/dormindo
-	_ rolamento
-	_ oxigenação
+foi possível baraterar? </br>
+possível usar ao longo do crescimento da criança?</br>
+possível usar em idosos ou pessoas doentes?</br>
+possível atribuir mais sensores e funções com mais tempo e pesquisas?</br>
+* qualidade de sono</br>
+* quedas</br>
+* posição</br>
+* acordado/dormindo</br>
+* rolamento</br>
+* oxigenação</br>
 
 
