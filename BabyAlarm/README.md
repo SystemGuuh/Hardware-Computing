@@ -5,18 +5,18 @@ Documentação com código Fonte
 # Como o dispositivo funciona
   <table>
   <tr>
-    <th>172.0.0.1/index</th>
-    <th>172.0.0.1/post</th> 
-    <th>172.0.0.1/creds</th>
+    <th>Coleta de credenciais</th>
+    <th>Carregamento de dados</th> 
+    <th>Mensagens do Bot</th>
   </tr>
   <tr>
-    <td>Essa é a página principal. Aqui o usuário escreve a senha dele e manda.</td>
-    <td>Aqui a página de validação, onde o usuário vai após mandar a senha.</td>
-    <td>A página de credenciais mostra os dados enviados ao atacante.</td>
+    <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha, número de celular e APIKAY.</td>
+    <td>Essa é apenas uma página de resposta para o usuário.</td>
+    <td>Aqui podemos ver o bot mandando mensagens sobre os relatórios de dados do bebê.</td>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/125K/ESP8266_WiFi_Captive_Portal_2.0/master/src/1_index.png" title="Index"></td>
-    <td><img src="https://raw.githubusercontent.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/master/src/2_post.png" title="Post"></td>
-    <td><img src="https://raw.githubusercontent.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/master/src/3_creds.png" title="Creds"></td>
+    <td><img src="#" title="Index"></td>
+    <td><img src="#" title="Loading"></td>
+    <td><img src="#" title="Whatsapp"></td>
   </tr>
 </table>
 
