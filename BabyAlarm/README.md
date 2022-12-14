@@ -33,7 +33,8 @@ A requesição passa pelo URL o texto em questão que será enviado pro bot e pa
   <tr>
     <td>ESP8266</td>
     <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/ESP.jpg" title="ESP"></td>
-    <td>Essa é a página principal. Aqui o usuário escreve a senha dele e manda.</td>
+    <td>
+O módulo WiFi ESP8266 é um SOC com protocolo TCP/IP integrado que consegue dar a qualquer microcontrolador acesso a sua rede WiFi. O ESP8266 é capaz tanto de hospedar uma aplicação quanto descarregar todas as funções de redes WiFi a partir de outro processador de aplicação.</td>
   </tr>
 </table>
 
