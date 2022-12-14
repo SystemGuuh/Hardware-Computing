@@ -3,9 +3,24 @@ Projeto para a máteria de Computação Física, ministrada pelo @FNakano na Uni
 Documentação com código Fonte
 
 # Como o dispositivo funciona
-  
+  <table>
+  <tr>
+    <th>172.0.0.1/index</th>
+    <th>172.0.0.1/post</th> 
+    <th>172.0.0.1/creds</th>
+  </tr>
+  <tr>
+    <td>Essa é a página principal. Aqui o usuário escreve a senha dele e manda.</td>
+    <td>Aqui a página de validação, onde o usuário vai após mandar a senha.</td>
+    <td>A página de credenciais mostra os dados enviados ao atacante.</td>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/125K/ESP8266_WiFi_Captive_Portal_2.0/master/src/1_index.png" title="Index"></td>
+    <td><img src="https://raw.githubusercontent.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/master/src/2_post.png" title="Post"></td>
+    <td><img src="https://raw.githubusercontent.com/BlueArduino20/ESP8266_WiFi_Captive_Portal_2.0/master/src/3_creds.png" title="Creds"></td>
+  </tr>
+</table>
 
-Materiais 
+# Materiais 
 1. ESP8266: comunicação via Wi-Fi, responsável pela emissão do sinal do bot do Whatsapp, criando um canal de comunicação entre as informações do arduino e o usuário. Custa cerca de R$40,00.</br>
 2. DS18B20: sensor de temperatura digital, que é capaz de medir temperaturas entre -55° até 125°C, em meio seco, úmido ou submerso, não necessitando de um componente externo, além de já apresentar os valores em graus celsius. Custa cerca de R$20,00.</br>
 3. KY038: sensor capaz de medir as variações de som em um ambiente a parti de um microfone no módulo. Custa cerca de R$15,00.</br>
@@ -13,9 +28,9 @@ Materiais
 **Valor estimado em materiais para o projeto: R$75,00**
 
 # Descrever o circuito pela lista de conexões
-Inicialmente o ESP8266 emite um sinal de hotspot para conexão, para acessar a rede é necessário fazer login. No formulário de acesso, é solicitado dados como o SSID, Senha da rede Wifi, Número de celular e APIKEY(chave usada para o bot). Quando a placa recebe esses daddos, ela tenta fazer a conexão, a partir daí o resto do código é ativado. A partir desse momento os sensores começam a operar, medindo a temperatura e o som ambiente. Caso a temperatura exceda o esperado ou caso o sensor de som capte um ruído muito alto uma sequência de vezes é feita uma requisição para mandar mensagem.
+Inicialmente o ESP8266 emite um sinal de hotspot para conexão, para acessar a rede é necessário fazer login. No formulário de acesso, é solicitado dados como o SSID, Senha da rede Wifi, Número de celular e APIKEY(chave usada para o bot). Quando a placa recebe esses daddos, ela tenta fazer a conexão, a partir daí o resto do código é ativado. Nesse momento os sensores começam a operar, medindo a temperatura pela porta digital 2(D2) e o som ambiente pela porta analógica 0(A0), ambos com um VCC de 3,3V. Caso a temperatura exceda o esperado ou caso o sensor de som capte um ruído muito alto uma sequência de vezes é feita uma requisição via Wifi para mandar mensagem pro whatsapp indicado.
 
-A requesição passa pelo URL o texto em questão que será enviado pro bot e para o whatsapp. Enquanto houver conexão a leitura será feita. Caso a conexão se perca ou o dispositivo desligue(por falta de alimentação). Haverá necessidade de relogar na rede.
+A requesição passa pelo URL o texto em questão que será enviado para o bot. Enquanto houver conexão a leitura será feita, isto é, enquanto a função  `WiFi.isConnected()` retornar TRUE. Caso a conexão se perca ou o dispositivo desligue(por falta de alimentação), haverá necessidade de relogar na rede. Ademais, as leituras também cessarão, pois não há como enviar os dados.
 
 # Foto do circuito
 
