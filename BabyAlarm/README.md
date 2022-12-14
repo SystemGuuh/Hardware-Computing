@@ -138,16 +138,8 @@ void sendWhatsapp(String text) {
 
 
 # Conclusão
-
-foi possível baraterar? </br>
-possível usar ao longo do crescimento da criança?</br>
-possível usar em idosos ou pessoas doentes?</br>
-possível atribuir mais sensores e funções com mais tempo e pesquisas?</br>
-* qualidade de sono</br>
-* quedas</br>
-* posição</br>
-* acordado/dormindo</br>
-* rolamento</br>
-* oxigenação</br>
-
-
+Com a execução do projeto obtivemos um problema com limitação de hardware em relação ao sensor de batimentos cardíacos, com isso o nosso wearable ficou com duas funções: temperatura e sensor de som. </br>
+Um dos nossos objetivos com o projeto seria o barateamento do produto, com os materiais utilizados atingimos um valor de R$109,00 comprando os itens no varejo. Comprando em maiores quantidades seria possível diminuir ainda mais, logo nosso objetivo foi alcançado, pois um dos concorrentes de wearables possui um produto de US$10, cerca de R$54,00 hoje, mas apenas com a função de GPS e outro possui uma chupeta que mede temperatura por US$40, cerca de R$215,00 hoje, porém nem todos os bebês conseguem se adaptar à chupeta e ela precisa estar na boca para que a medição ocorra.</br>
+Em relação ao uso do wearable conforme o crescimento do bebê, chegamos à conclusão de que esse dispositivo, no processo de desenvolvimento que chegamos no momento, seria possível usar até a criança começar a andar, com cerca de 8 meses à 18 meses. Após isso, teria de ser adaptado por questões de segurança dos componentes devido movimentos mais irregulares e possíveis quedas conforme o desenvolvimento. Outra meta que foi possível atingir foi seu uso em pessoas com algum tipo de doença ou deficiência, ou pessoas e idosos acamados.</br>
+A consulta e monitoramento também se dá de forma rápida e prática, já que os sensores captam os dados e enviam as informações via WhatsApp.</br>
+Com mais tempo, estudos e investimento, seria possível aplicar mais funções (mantendo a acessibilidade de aquisição) como a própria função de batimentos cardíacos, além de qualidade do sono, quedas, posição do bebê, se ele está acordado ou dormindo, rolamentos e oxigenação, por exemplo, que envolvem pesquisas de outros campos além do desenvolvimento do código. Também seria uma possibilidade, criar uma série de gráficos com esses dados de forma comparativa, dando sugestões personalizadas aos pais e mães a partir dos dados que recebe do bebê.</br>
