@@ -16,6 +16,24 @@ Materiais
 
 # Foto do circuito
 
+<table>
+  <tr>
+    <td>Sensor térmico DS18B20</td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/cicuito2.jpg" title="SensorTemp"></td>
+    <td>Após realização a ligação em paralelo destes, conectamos os pinos VCC no pino 3.3V do ESP, o pino GND no GND e os pinos de sinal no pino Digital 2.</td>
+  </tr>
+  <tr>
+    <td>Sensor de som KY038</td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/sensorSom.jpg" title="SensorSom"></td>
+    <td>Para o uso desse dispositivo conectamos os pinos VCC no pino 3.3V do ESP, o pino GND no GND e os pinos de sinal no pino Analógico 0.</td>
+
+  <tr>
+    <td>ESP8266</td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/ESP.jpg" title="ESP"></td>
+    <td>Essa é a página principal. Aqui o usuário escreve a senha dele e manda.</td>
+  </tr>
+</table>
+
 # Como usar o programa
 
 # Público e Necessidades
