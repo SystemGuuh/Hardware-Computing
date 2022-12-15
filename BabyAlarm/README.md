@@ -5,17 +5,17 @@ Documentação com código Fonte
 # Como o dispositivo funciona
   <table>
   <tr>
-    <th>Coleta de credenciais</th>
-    <th>Carregamento de dados</th> 
+    <th>Emissão de sinal</th>
+    <th>Coleta de credenciais</th> 
     <th>Mensagens do Bot</th>
   </tr>
   <tr>
+    <td>Aqui temos o sinal emitido pela placa. É possível conectar nele para fazer o login.</td>
     <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha.</td>
-    <td>Essa é apenas uma página de resposta para o usuário.</td>
     <td>Aqui podemos ver o bot mandando mensagens sobre os relatórios de dados do bebê.</td>
   <tr>
-    <td><img src="#" title="Index"></td>
-    <td><img src="#" title="Loading"></td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/sinal.jpeg" title="Sinal"></td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/login.jpeg" title="Lofin"></td>
     <td><img src="#" title="Telegram"></td>
   </tr>
 </table>
