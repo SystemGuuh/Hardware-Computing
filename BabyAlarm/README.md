@@ -10,13 +10,13 @@ Documentação com código Fonte
     <th>Mensagens do Bot</th>
   </tr>
   <tr>
-    <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha, número de celular e APIKAY.</td>
+    <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha.</td>
     <td>Essa é apenas uma página de resposta para o usuário.</td>
     <td>Aqui podemos ver o bot mandando mensagens sobre os relatórios de dados do bebê.</td>
   <tr>
     <td><img src="#" title="Index"></td>
     <td><img src="#" title="Loading"></td>
-    <td><img src="#" title="Whatsapp"></td>
+    <td><img src="#" title="Telegram"></td>
   </tr>
 </table>
 
@@ -24,13 +24,18 @@ Documentação com código Fonte
 1. ESP8266: comunicação via Wi-Fi, responsável pela emissão do sinal do bot do Whatsapp, criando um canal de comunicação entre as informações do arduino e o usuário. Custa cerca de R$40,00.</br>
 2. DS18B20: sensor de temperatura digital, que é capaz de medir temperaturas entre -55° até 125°C, em meio seco, úmido ou submerso, não necessitando de um componente externo, além de já apresentar os valores em graus celsius. Custa cerca de R$20,00.</br>
 3. KY038: sensor capaz de medir as variações de som em um ambiente a parti de um microfone no módulo. Custa cerca de R$15,00.</br>
+4. Protoboard 400 pontos: construção de protótipos de projetos e ensaios de circuito. Custa cerca de R$12,50
+5. Jumpers: utilizado para conectar pontos em um circuito. Custa cerca de R$4,50
+6. Presilha bico de pato: usada para manter o dispositivo em contato com a roupa do bebê. Custa cerca de R$2,00
+7. Cabo USB e Powerbank: usados para manter o sistema ativo. Custa cerca de R$15,00
 
-**Valor estimado em materiais para o projeto: R$75,00**
+**Valor estimado em materiais para o projeto: R$109,00**
 
 # Descrever o circuito pela lista de conexões
-Inicialmente o ESP8266 emite um sinal de hotspot para conexão, para acessar a rede é necessário fazer login. No formulário de acesso, é solicitado dados como o SSID, Senha da rede Wifi, Número de celular e APIKEY(chave usada para o bot). Quando a placa recebe esses daddos, ela tenta fazer a conexão, a partir daí o resto do código é ativado. Nesse momento os sensores começam a operar, medindo a temperatura pela porta digital 2(D2) e o som ambiente pela porta analógica 0(A0), ambos com um VCC de 3,3V. Caso a temperatura exceda o esperado ou caso o sensor de som capte um ruído muito alto uma sequência de vezes é feita uma requisição via Wifi para mandar mensagem pro whatsapp indicado.
+Inicialmente o ESP8266 emite um sinal de hotspot para conexão, e para acessar a rede é necessário fazer login. No formulário de acesso são solicitados dados como o SSID, senha da rede Wifi. Quando a placa recebe esses dados, ela tenta fazer a conexão, a partir daí o resto do código é ativado. Nesse momento os sensores começam a operar, medindo a temperatura pela porta digital 2(D2) e o som ambiente pela porta analógica 0(A0), ambos com um VCC de 3,3V. Caso a temperatura exceda o esperado ou caso o sensor de som capte um ruído muito alto uma sequência de vezes é feita uma requisição via Wifi para mandar mensagem pro whatsapp indicado.
 
-A requesição passa pelo URL o texto em questão que será enviado para o bot. Enquanto houver conexão a leitura será feita, isto é, enquanto a função  `WiFi.isConnected()` retornar TRUE. Caso a conexão se perca ou o dispositivo desligue(por falta de alimentação), haverá necessidade de relogar na rede. Ademais, as leituras também cessarão, pois não há como enviar os dados.
+A requisição passa pelo URL do texto em questão que será enviado para o bot. Enquanto houver conexão a leitura será feita, isto é, enquanto a função `WiFi.isConnected()` retornar TRUE. Caso a conexão se perca ou o dispositivo desligue (por falta de alimentação), haverá necessidade de logar na rede. Ademais, as leituras também cessarão, pois não há como enviar os dados.
+
 
 # Foto do circuito
 
@@ -56,7 +61,7 @@ O módulo WiFi ESP8266 é um SOC com protocolo TCP/IP integrado que consegue dar
 # Como usar o programa
 
 Para execurtar o `BabyAlarmESP8266.ino` no ArduinoIDE é necessário adicionar o pacote de placas do módulo ESP8266. Há um tutorial disponível de como adicionar o pacote,
-<a href="https://www.robocore.net/tutoriais/programando-o-esp8266-pela-arduino-ide">veja aqui</a>. No `BabyAlarmESP8266.ino` são definidas diversas funções que carregam a página em HTML e CSS como `header()`, ou que enviam mensagens no whatsapp em `sendWhatsapp()`.
+<a href="https://www.robocore.net/tutoriais/programando-o-esp8266-pela-arduino-ide">veja aqui</a>. No `BabyAlarmESP8266.ino` são definidas diversas funções que carregam a página em HTML e CSS como `header()`, ou que enviam mensagens no telegram é a função `myBot.sendMessage(id, msg)`.
 
 # Público e Necessidades
 
@@ -66,7 +71,8 @@ Nosso público-alvo são mães e pais de primeira viagem que se sentem inseguros
 
 # Objetivos
 
-Nosso principal objetivo com esse projeto seria unificar as diferentes funções em um único dispositivo, projetar um dispositivo que possa ser usado conforme o crescimento da criança, barateando e aumentando sua acessibilidade para a população, além, é claro, de reduzir a sobrecarga, preocupação e estresse dos pais.
+Nosso principal objetivo com esse projeto seria unificar as diferentes funções em um único dispositivo, projetando um dispositivo que possa ser usado conforme o crescimento do bebê/criança, barateando e aumentando sua acessibilidade para a população, além, é claro, de reduzir a sobrecarga, preocupação e estresse dos pais.Através de um dispositivo de fácil monitoramento, com consulta rápida e precisa, além de um alerta para casos de risco.
+
 
 # Resultados esperados
 
