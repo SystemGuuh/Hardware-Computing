@@ -1,24 +1,21 @@
+
 #include <ESP8266WiFi.h>      //ESP8266
 #include <ESP8266mDNS.h>      //OTA
 #include <DNSServer.h>        //DNS server
 #include <ESP8266WebServer.h> //Web server
-#include <WiFiUdp.h>          //OTA
-#include <ArduinoOTA.h>       //OTA
 #include <Arduino.h>
-#include <U8g2lib.h>          // lembre de adicionar a biblioteca U8g2  no Arduino IDE  -- Biblioteca para display monocromatico
 #include <SPI.h>
 #include <Wire.h>
 #include <ESP8266HTTPClient.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #include <string.h>
+#include <UrlEncode.h>
 
-//configurações
-#define OLED_SDA  2
-#define OLED_SCL 14
-#define OLED_RST  4
-U8G2_SSD1306_128X32_UNIVISION_F_SW_I2C u8g2(U8G2_R0, OLED_SCL, OLED_SDA , OLED_RST);
-const char *text1 = "Baby Alarm";  // texto para escrever no display
+// Configurações bot whatsapp
+String YOUR_PHONE = "5511967833245"; 
+String YOUR_APIKEY = "6975923"; //Your API KEY
+String URL = "https://api.callmebot.com/whatsapp.php?phone=+";
 
 // Configurações de usuário
 #define SSID_NAME "BabyAlarm"
@@ -35,13 +32,6 @@ const int oneWireBus = 4;
 OneWire oneWire(oneWireBus);
 DallasTemperature sensors(&oneWire);
 
-// Variaveis pro sensor de som
-int sensorPin = 0;    // select the input pin for the potentiometer
-int sensorValue1 = 0;  // variable to store the value coming from the sensor
-int sensorValue2 = 0;
-int cont = 0;
-int variacao = 0;
-
 // Iniciando configurações do sistema
 const byte HTTP_CODE = 200;
 const byte DNS_PORT = 53;
@@ -52,15 +42,6 @@ IPAddress APIP(172, 0, 0, 1); // Gateway
 String wifi_ssid;
 String wifi_password;
 #define WiFi_hostname "Baby Alarm"
-
-//Variaveis para o bot de wpp
-String YOUR_PHONE; //Numero do celular sem o +
-String YOUR_APIKEY; //Chave da API(APIKEY)
-const String URL = "http://api.whatabot.net/whatsapp/sendMessage?text=";
-WiFiUDP ntpUDP;
-
-//Importante para fazer o Arduino detectar o dispositivo OTA 
-WiFiServer TelnetServer(8266);
 
 // Pagina de login
 String Credentials="";
@@ -102,8 +83,9 @@ String index() {
   return header(TITLE) + "<div>" + BODY + "</ol></div><div><form action=/post method=post>" +
     "<b>Nome da rede:</b> <center><input type=text name=rede placeholder='SSID do reteador'></input></center>" +
     "<b>Senha:</b> <center><input type=password name=password placeholder='Senha do roteador'></center>" + 
-    "<b>Numero de celular:</b> <center><input type=text name=cell placeholder='0000000000000'></input></center>" +
-    "<b>Chave APIKEY:</b> <center><input type=text name=apikey placeholder='12345678'></input><input type=submit value=\"Enviar\"></form></center>" +
+    "<b>Numero celular:</b> <center><input type=number name=cell placeholder='DDDD123456789'></center>" + 
+    "<b>APIKEY:</b> <center><input type=number name=apikey placeholder='1234567'></center>" + 
+     "<input type=submit value=\"Enviar\"></form></center>" +
     footer();
 }
 
@@ -114,8 +96,8 @@ String posted() {
   String apikey=input("apikey");
   wifi_ssid = rede;
   wifi_password = password;
-  YOUR_PHONE = celular;
-  YOUR_APIKEY = apikey;
+  //YOUR_PHONE= celular; 
+  //YOUR_APIKEY= apikey;
   Credentials="<li>Nome da rede: <b>" + rede + "</b></br>Senha: <b>" + password + "</b></li>" + Credentials;
   return header(POST_TITLE) + POST_BODY + footer();
 }
@@ -136,31 +118,42 @@ void setup_wifi() {
   Serial.println(wifi_ssid);
   WiFi.hostname(WiFi_hostname);
   WiFi.begin(wifi_ssid, wifi_password);
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
   Serial.print("\n endereco IP: ");
   Serial.println(WiFi.localIP());
-
-  Serial.print("Configurando o dispositivo OTA ...");
-  TelnetServer.begin();   //Importante para fazer o Arduino detectar o dispositivo OTA 
-
-  ArduinoOTA.onStart([]() {Serial.println("OTA ligando...");});
-  ArduinoOTA.onEnd([]() {Serial.println("atualizacaoo terminada!");Serial.println("Reiniciando...");});
-  ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {Serial.printf("OTA carregando: %u%%\r\n", (progress / (total / 100)));});  
-  ArduinoOTA.onError([](ota_error_t error) {
-    Serial.printf("Error[%u]: ", error);
-    if (error == OTA_AUTH_ERROR) Serial.println("Autenticacao falhou");
-    else if (error == OTA_BEGIN_ERROR) Serial.println("Inicializçao falhou");
-    else if (error == OTA_CONNECT_ERROR) Serial.println("Conexao Falhou");
-    else if (error == OTA_RECEIVE_ERROR) Serial.println("Recebimento falhou");
-    else if (error == OTA_END_ERROR) Serial.println("Eroo ao encerrar");
-  });
-  ArduinoOTA.begin();
   Serial.println("Wifi OK");
 }
 
+//manda mensagem no bot
+void sendWhatsapp(String text) {
+  WiFiClient cliente;
+  HTTPClient https;
+  String url = URL + YOUR_PHONE + "&text=" + text + "&apikey=" + YOUR_APIKEY;
+  //https://api.callmebot.com/whatsapp.php?phone=+5511967833245&text=Ola+aqui+eh+o+BabyAlarm.+Em+breve+mandarei+a+temperatura+do+seu+bebe,+se+ele+chorar+eu+aviso+tambem.&apikey=6975923
+  Serial.println(url);
+  https.begin(cliente,url);
+  int httpCode = https.GET();
+
+ // Specify content-type header
+  https.addHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+  // Send HTTP POST request
+  int httpResponseCode = https.POST(url);
+  if (httpResponseCode == 200){
+    Serial.print("Message sent successfully");
+  }
+  else{
+    Serial.println("Error sending the message");
+    Serial.print("HTTP response code: ");
+    Serial.println(httpResponseCode);
+  }
+  
+  https.end();
+}
 
 void setup() {
   //Coletando credenciais
@@ -174,85 +167,69 @@ void setup() {
   webServer.on("/clear",[]() { webServer.send(HTTP_CODE, "text/html", clear()); });
   webServer.onNotFound([]() { lastActivity=millis(); webServer.send(HTTP_CODE, "text/html", index()); });
   webServer.begin();
-  pinMode(BUILTIN_LED, OUTPUT);
-  digitalWrite(BUILTIN_LED, HIGH);
   
-  //Configurando para printar no display
-  Serial.begin(9600);   
-  u8g2.begin();
-
+  //Configurando monitor serial
+  Serial.begin(9600);
 }
 
-// Manda mensagem apos conectar o celular
-void sendWhatsapp(String text) {
-  WiFiClient client;
-  HTTPClient https;
-  String url = URL + text + "&apikey=" + YOUR_APIKEY + "&phone=" + YOUR_PHONE;
-  https.begin(client, url);
-  int httpCode = https.GET();
-  https.end();
-  //Serial.println("mensagem enviada");
-}
-
-// Manda mensagem padrao pro wpp
-void mensagemWPP(String txt){
-  sendWhatsapp("Aqui estao os dados do bebe");
-  sendWhatsapp(txt);
-}
-
-
-int msg=1;
-int tempo=0;
-int chave =0;
+// Variaveis pro sensor de som e execuçao
+int mensagem=1;
+int sensorPin = 0;    // select the input pin for the potentiometer
+int sensorValue1 = 0;  // variable to store the value coming from the sensor
+int sensorValue2 = 0;
+int cont = 0;
+int variacao = 0;
 
 void loop() { 
   //longin na rede
   if ((millis()-lastTick)>TICK_TIMER) {lastTick=millis();} 
 dnsServer.processNextRequest(); webServer.handleClient();
-
+  
   if(WiFi.isConnected()){
-    if(msg == 1){
-      sendWhatsapp("BabyAlarm diz oi");
-      sendWhatsapp("seguir vou mandando atualizacoes a cada 1 hora do seu bebe, lembresse de conectar novamente da proxima vez que nos vermos");
-      msg = 0;  
-    }
-    
-  //acende o display  
-  ArduinoOTA.handle();
-  u8g2.clearBuffer();          // limpa a memória interna
-  u8g2.setFont(u8g2_font_8x13B_mf); // escolhe a fonte
-  u8g2.drawStr(0,10,text1);  // escreve na memória interna    
-  u8g2.sendBuffer();          // transfere da memória interna pro display
-
+  
   //faz leitura da temperatura
   sensors.requestTemperatures(); 
   float temperatureC = sensors.getTempCByIndex(0);
   String temp = String(temperatureC);
-  String tempTXT = "Temperatura: " + temp + "ºC";
-  //Serial.println(tempTXT);
-
-  if(tempo > 60*60){
-    mensagemWPP(tempTXT);
-    chave = 0;
-   }
+  String tempTXT = "Temperatura:+" + temp + "ºC";
+  Serial.println(tempTXT);
 
   //faz leitura de som
   sensorValue1 = analogRead(sensorPin);
   sensorValue2 = analogRead(sensorPin);
   variacao = (sensorValue1 - sensorValue2);
-  if (variacao>1 || variacao<-1)  {
-    cont = cont+1;
-    if (cont>4 && chave == 0){
-      // BEBE CHORANDO
-      sendWhatsapp("Seu bebe esta chorando");
-      //Serial.println("Seu bebê está chorando!");
-      cont = 0;
-      chave = 1;
-    }
-  }
+  Serial.println(variacao);
 
+  if(mensagem==1){
+    sendWhatsapp("Ola+aqui+eh+o+BabyAlarm.+Em+breve+mandarei+a+temperatura+do+seu+bebe,+se+ele+chorar+eu+aviso+tambem.");
+
+    mensagem=0;
+  }
+    /*
+        //se temperatura baixa, avisa
+        if(temperatureC < 34.9-(34.9*0.1){
+          sendWhatsapp("O+bebe+esta+com+a+temperatura+baixa!!");
+          sendWhatsapp(tempTXT);
+        }else if(temperatureC > 36.9+(36.9*0.1)){
+          sendWhatsapp("O+bebe+esta+com+a+temperatura+alta!!");
+          sendWhatsapp(tempTXT);
+        }
+        
+        // Verifica se bebe esta chorando ha um tempo(aprox 1 minuto c/ delay de codigo)
+        if (variacao>1 || variacao<-1)  {
+          cont = cont+1;
+          if (cont>=4){
+            // BEBE CHORANDO
+            sendWhatsapp("O bixo ta choranu vei");
+            Serial.println("Seu bebê está chorando!");
+            cont = 0;
+          }
+        }
+ }
+ }
+*/
   
   delay(1000);  
-  tempo++;
   }
+
 }
