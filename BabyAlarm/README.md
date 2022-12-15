@@ -6,17 +6,20 @@ Documentação com código Fonte
   <table>
   <tr>
     <th>Emissão de sinal</th>
-    <th>Coleta de credenciais</th> 
+    <th>Coleta de credenciais</th>
+    <th>Conexão estabelecida</th>
     <th>Mensagens do Bot</th>
   </tr>
   <tr>
-    <td>Aqui temos o sinal emitido pela placa. É possível conectar nele para fazer o login.</td>
-    <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha.</td>
-    <td>Aqui podemos ver o bot mandando mensagens sobre os relatórios de dados do bebê.</td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/sinal.jpeg" title="SinalIGM"></td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/telalogin.jpeg" title="LoginIMG"></td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/conectado.jpeg" title="ConectadoIMG"></td>
+    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/msg.jpeg" title="WhatsappIMG"></td>    
   <tr>
-    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/sinal.jpeg" title="Sinal"></td>
-    <td><img src="https://raw.githubusercontent.com/SystemGuuh/Computacao-Fisica/main/BabyAlarm/imgs/login.jpeg" title="Lofin"></td>
-    <td><img src="#" title="Telegram"></td>
+    <td>O sinal é emitido pela placa, com ele podemos conectar no ESP8266 para fazer o login.</td>
+    <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha.</td>
+    <td>Tela de conectado, indicando o acesso à internet, dando assim sequência ao resto do programa.</td>
+    <td>Aqui podemos ver o bot mandando mensagens sobre os relatórios de dados do bebê.</td>
   </tr>
 </table>
 
@@ -61,7 +64,7 @@ O módulo WiFi ESP8266 é um SOC com protocolo TCP/IP integrado que consegue dar
 # Como usar o programa
 
 Para execurtar o `BabyAlarmESP8266.ino` no ArduinoIDE é necessário adicionar o pacote de placas do módulo ESP8266. Há um tutorial disponível de como adicionar o pacote,
-<a href="https://www.robocore.net/tutoriais/programando-o-esp8266-pela-arduino-ide">veja aqui</a>. No `BabyAlarmESP8266.ino` são definidas diversas funções que carregam a página em HTML e CSS como `header()`, ou que enviam mensagens no telegram é a função `myBot.sendMessage(id, msg)`.
+<a href="https://www.robocore.net/tutoriais/programando-o-esp8266-pela-arduino-ide">veja aqui</a>. No `BabyAlarmESP8266.ino` são definidas diversas funções que carregam a página em HTML e CSS como `header()`, ou que enviam mensagens no Whatsapp é a função `sendWhatsapp(msg)`.
 
 # Público e Necessidades
 
