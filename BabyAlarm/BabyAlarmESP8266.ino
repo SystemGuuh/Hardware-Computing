@@ -14,7 +14,7 @@
 // Configurações bot whatsapp
 String YOUR_PHONE; 
 String YOUR_APIKEY; //Your API KEY
-String URL = "https://api.callmebot.com/whatsapp.php?phone=+";
+const String URL = "http://api.whatabot.net/whatsapp/sendMessage?text=";
 
 // Configurações de usuário
 #define SSID_NAME "BabyAlarm"
@@ -124,13 +124,11 @@ void setup_wifi() {
 
 //manda mensagem no bot
 void sendWhatsapp(String text) {
-  WiFiClient cliente;
+  WiFiClient client;
   HTTPClient https;
-  Serial.println(text);
-  String url = URL + YOUR_PHONE + "&text=" + text + "&apikey=" + YOUR_APIKEY;Serial.println(url);
-  https.begin(cliente,url);
+  String url = URL + text + "&apikey=" + YOUR_APIKEY + "&phone=" + YOUR_PHONE;
+  https.begin(client, url);
   int httpCode = https.GET();
-  
   https.end();
 }
 
@@ -180,7 +178,6 @@ dnsServer.processNextRequest(); webServer.handleClient();
 
   //manda mensagem de ola uma vez
   if(mensagem==1){
-    sendWhatsapp(tempTXT);
     sendWhatsapp("Ola%20aqui%20eh%20o%20BabyAlarm.%20Em%20breve%20mandarei%20a%20temperatura%20do%20seu%20bebe,%20se%20ele%20chorar%20eu%20aviso%20tambem.");
     mensagem=0;
   }
@@ -204,8 +201,6 @@ dnsServer.processNextRequest(); webServer.handleClient();
     }
   }
  
- 
-
   
   delay(1000);  
   }
