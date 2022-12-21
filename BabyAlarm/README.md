@@ -2,7 +2,7 @@
 Projeto para a máteria de Computação Física, ministrada pelo @FNakano na Universidade de Sâo Paulo. O projeto é um dispositivo de monitoramento de bebês.
 Documentação com código Fonte
 
-# Como o dispositivo funciona
+# Como o dispositivo funciona e como usar
   <table>
   <tr>
     <th>Emissão de sinal</th>
@@ -20,6 +20,12 @@ Documentação com código Fonte
     <td>Essa é a página principal. Aqui o usuário escreve o SSID, senha.</td>
     <td>Tela de conectado, indicando o acesso à internet, dando assim sequência ao resto do programa.</td>
     <td>Aqui podemos ver o bot mandando mensagens sobre os relatórios de dados do bebê.</td>
+  </tr>
+  <tr>
+    <td>Passo 1: Faça login no sinal BabyAlarm.</td>
+    <td>Passo 2: Insera os dados solicitados, caso não tenha APIKEY, veja o passo 4.</td>
+    <td>Passo 3: Verifique se a conexão foi estabelecida com sucesso.</td>
+    <td>Passo 4: Mande a mesagem acima para o número 54 9 1123998026, ele vai gerar sua APIKEY para o passo 3.</td>
   </tr>
 </table>
 
