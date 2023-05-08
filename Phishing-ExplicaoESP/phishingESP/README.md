@@ -34,7 +34,7 @@ Além disso, é apenas uma tradução e adaptação do **ESP8266-Captive-Portal*
 
 # Instalação (ESP8266 Flasher - Modo fácil)
 
-1. Baixe: <a href="https://github.com/nodemcu/nodemcu-flasher"><b>ESP8266 Flasher</b></a>. Testei para o ESP3266 e funcionou tranquilamente!
+1. Baixe: <a href="https://github.com/nodemcu/nodemcu-flasher"><b>ESP8266 Flasher</b></a>. Testei para o ESP32 e funcionou tranquilamente!
 
 2. Beixe o arquivo <b><a href="https://github.com/125K/ESP8266_WiFi_Captive_Portal/releases/download/1.1/release.bin">release.bin</b>
 
