@@ -26,7 +26,7 @@ Um ataque comum de vishing inclui uma ligação de alguém que afirma ser um rep
 # Nomenclatura<br>
 |     Nome      |   Aproximação    |  Descrição    |
 | ------------- | ------------- | ------------- |
-| Pishing  | Pecaria  | Jogar uma isca e "pescar" vítimas na internet  |
+| Pishing  | Pescaria  | Jogar uma isca e "pescar" vítimas na internet  |
 | Spear Phising  | Pescar com vara  | Pescar com uma vara pode levar a você vários itens abaixo da linha da água  |
 | Whaling  | Pesca de baleia  | Focar em um alvo grande, como uma baleia, pode trazer melhores resultados  |
 | Smishing  | Pescaria por SMS  | Usar o sms pode poupar você de algumas interações  |
